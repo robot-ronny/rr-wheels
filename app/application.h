@@ -27,6 +27,6 @@ typedef struct
 extern application_t application;
 
 bool action_stop(void);
-bool action_go(action_go_t action, int interval);
+bool action_go(action_go_t action, int interval, int pwm);
 
 #endif

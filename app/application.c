@@ -49,7 +49,7 @@ bool action_stop(void)
     return true;
 }
 
-bool action_go(action_go_t action, int interval)
+bool action_go(action_go_t action, int interval, int pwm)
 {
     if (application.moving && application.action != action)
     {
@@ -100,9 +100,9 @@ bool action_go(action_go_t action, int interval)
         }
     }
 
-    bc_pwm_set(PWM_LEFT, 100);
+    bc_pwm_set(PWM_LEFT, pwm);
     bc_pwm_enable(PWM_LEFT);
-    bc_pwm_set(PWM_RIGHT, 100);
+    bc_pwm_set(PWM_RIGHT, pwm);
     bc_pwm_enable(PWM_RIGHT);
 
     if (application.moving)
