@@ -6,23 +6,23 @@ AT commands for robot movements are:
 
 1. Move forward:
 
-    AT$FORWARD=<milliseconds>,<pwm(0-255)>
-    OK
+        AT$FORWARD=<milliseconds>,<pwm(0-255)>
+        OK
 
 2. Move backward:
 
-    AT$BACKWARD=<milliseconds>,<pwm(0-255)>
-    OK
+        AT$BACKWARD=<milliseconds>,<pwm(0-255)>
+        OK
 
 3. Move left:
 
-    AT$LEFT=<milliseconds>,<pwm(0-255)>
-    OK
+        AT$LEFT=<milliseconds>,<pwm(0-255)>
+        OK
 
 4. Move backward:
 
-    AT$RIGHT=<milliseconds>,<pwm(0-255)>
-    OK
+        AT$RIGHT=<milliseconds>,<pwm(0-255)>
+        OK
 
 Each of the movement is finished with the `+$STOP` URC message.
 
