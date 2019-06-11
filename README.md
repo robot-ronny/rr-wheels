@@ -32,8 +32,8 @@ All movements have ramp-up and ramp-down phase lasting 300 milliseconds.
 
 Other supported AT commands are:
 
-    AT+CLAC - Print all supported AT commands
-    AT$HELP - Print help for the implemented AT commands
+        AT+CLAC - Print all supported AT commands
+        AT$HELP - Print help for the implemented AT commands
 
 ## License
 
