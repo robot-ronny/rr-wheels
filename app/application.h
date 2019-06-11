@@ -20,7 +20,12 @@ typedef struct
 {
     bool moving;
     action_go_t action;
-    bc_scheduler_task_id_t stop_task_id;
+
+    bool pwm_change;
+    int pwm_target;
+    int pwm_now;
+    bc_tick_t pwm_timeout;
+    bc_ramp_t pwm_ramp;
 
 } application_t;
 

@@ -5,7 +5,7 @@
 #include <bc_cmwx1zzabz.h>
 #include <bc_led.h>
 
-void at_init(bc_led_t *led);
+void at_init(void);
 bool at_blink(void);
 bool at_led_set(bc_atci_param_t *param);
 bool at_led_help(void);
