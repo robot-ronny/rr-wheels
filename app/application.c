@@ -149,6 +149,8 @@ void application_task(void *param)
         {
             bc_atci_printf("+$PWM: %d", application.pwm_now);
         }
+#else
+        application.pwm_now = bc_ramp_get(&application.pwm_ramp);
 #endif
 
         bc_pwm_set(PWM_LEFT, application.pwm_now);
@@ -160,6 +162,14 @@ void application_task(void *param)
         {
             application.pwm_now = 0;
             application.moving = false;
+
+            bc_pwm_disable(PWM_LEFT);
+            bc_pwm_disable(PWM_RIGHT);
+
+            bc_gpio_set_output(IN_A_LEFT, 0);
+            bc_gpio_set_output(IN_A_RIGHT, 0);
+            bc_gpio_set_output(IN_B_LEFT, 0);
+            bc_gpio_set_output(IN_B_RIGHT, 0);
 
             bc_atci_printf("+$STOP");
         }
