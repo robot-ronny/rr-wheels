@@ -1,21 +1,39 @@
-<a href="https://www.bigclown.com/"><img src="https://bigclown.sirv.com/logo.png" width="200" alt="BigClown Logo" align="right"></a>
+# Robot Ronny - Wheel Firmware
 
-# Firmware Skeleton for BigClown Core Module
+This repository contains firmware for the Core Module driving wheels on robot Ronny. The Core Module is controlled through the USB UART interface via AT commands.
 
-[![Travis](https://img.shields.io/travis/bigclownlabs/bcf-skeleton/master.svg)](https://travis-ci.org/bigclownlabs/bcf-skeleton)
-[![Release](https://img.shields.io/github/release/bigclownlabs/bcf-skeleton.svg)](https://github.com/bigclownlabs/bcf-skeleton/releases)
-[![License](https://img.shields.io/github/license/bigclownlabs/bcf-skeleton.svg)](https://github.com/bigclownlabs/bcf-skeleton/blob/master/LICENSE)
-[![Twitter](https://img.shields.io/twitter/follow/BigClownLabs.svg?style=social&label=Follow)](https://twitter.com/BigClownLabs)
+AT commands for robot movements are:
 
-This repository contains firmware skeleton for [Core Module](https://shop.bigclown.com/core-module).
+1. Move forward:
 
-If you want to get more information about Core Module, firmware and how to work with it, please follow this link:
+    AT$FORWARD=<milliseconds>,<pwm(0-255)>
+    OK
 
-**https://www.bigclown.com/doc/firmware/basic-overview/**
+2. Move backward:
 
-User's application code (business logic) goes into `app/application.c`.
-The default content works as a *Hello World* example.
-When flashed into Core Module, it toggles LED state with each button press.
+    AT$BACKWARD=<milliseconds>,<pwm(0-255)>
+    OK
+
+3. Move left:
+
+    AT$LEFT=<milliseconds>,<pwm(0-255)>
+    OK
+
+4. Move backward:
+
+    AT$RIGHT=<milliseconds>,<pwm(0-255)>
+    OK
+
+Each of the movement is finished with the `+$STOP` URC message.
+
+All movements have ramp-up and ramp-down phase lasting 300 milliseconds.
+
+> It is possible to extend a movement in one direction indefinitely.
+
+Other supported AT commands are:
+
+    AT+CLAC - Print all supported AT commands
+    AT$HELP - Print help for the implemented AT commands
 
 ## License
 
